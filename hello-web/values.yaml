@@ -2,8 +2,8 @@ replicaCount: 1
 
 image:
   # TODO → CHANGE THIS to your real container image
-  repository: nginx
-  tag: "latest"
+  repository: myacr.azurecr.io/hello-web
+  tag: v1
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
