@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   # TODO → CHANGE THIS to your real container image
-  repository: myaksdemo01acr123.azurecr.io
+  repository: myaksdemo01acr123.azurecr.io/hello-web:1.16.0
   tag: ""
   pullPolicy: IfNotPresent
 
