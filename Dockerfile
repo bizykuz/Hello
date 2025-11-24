@@ -1,13 +1,15 @@
-# Build stage
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+# Build stage - use .NET 8 SDK
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 COPY . .
 RUN dotnet restore
 RUN dotnet publish -c Release -o /app/publish
 
-# Runtime stage
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+# Runtime stage - .NET 8 ASP.NET runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "Hello.dll"]
+
+# NOTE: use the actual DLL name from your project (likely HelloWorld.dll)
+ENTRYPOINT ["dotnet", "HelloWorld.dll"]
